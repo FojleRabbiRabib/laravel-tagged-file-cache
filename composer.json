@@ -1,5 +1,5 @@
 {
-  "name": "FojleRabbiRabib/laravel-tagged-file-cache",
+  "name": "fojlerabbirabib/laravel-tagged-file-cache",
   "description": "Taggable File Cache driver for Laravel. Allows the use of Cache tags with a file cache.",
   "authors": [
     {
