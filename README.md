@@ -1,7 +1,6 @@
-# Laravel Taggable File Cache ![Build Status](https://api.travis-ci.org/microweber-packages/laravel-tagged-file-cache.svg?branch=master)
-https://travis-ci.org/microweber-packages/laravel-tagged-file-cache
+# Laravel Taggable File Cache ![Build Status](https://github.com/FojleRabbiRabib/laravel-tagged-file-cache/actions/workflows/laravel.yml/badge.svg?branch=master)
 
-This package provides a custom file [cache driver](https://laravel.com/docs/6.x/cache#adding-custom-cache-drivers) that supports [Cache Tags](https://laravel.com/docs/6.x/cache#cache-tags) for Laravel 6.x
+This package provides a custom file [cache driver](https://laravel.com/docs/11.x/cache#adding-custom-cache-drivers) that supports [Cache Tags](https://laravel.com/api/11.x/Illuminate/Support/Facades/Cache.html#method_tags) for Laravel 11.x
 
 ## Usage
 This product is publicly available under the terms of the MIT license included in this repository. 
@@ -9,14 +8,14 @@ This product is publicly available under the terms of the MIT license included i
 ## Installation and Requirements
 First, you'll need to require the package with Composer:
 ```
-composer require microweber-packages/laravel-tagged-file-cache
+composer require FojleRabbiRabib/laravel-tagged-file-cache
 ```
 
 Then, update `config/app.php` by adding an entry for the service provider.
 ```
 'providers' => [
     // ...
-    MicroweberPackages\Cache\TaggableFileCacheServiceProvider::class
+    FojleRabbiRabib\Cache\TaggableFileCacheServiceProvider::class
 ];
 ```
 Finally, add the necessary config to  `config\cache.php`. 

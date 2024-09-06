@@ -1,8 +1,10 @@
 <?php
 
-abstract class BaseTest extends Orchestra\Testbench\TestCase
-{
+use FojleRabbiRabib\Cache\TaggableFileCacheServiceProvider;
+use Orchestra\Testbench\TestCase;
 
+abstract class BaseTest extends TestCase
+{
     public function tearDown(): void
     {
         \Mockery::close();
@@ -11,7 +13,7 @@ abstract class BaseTest extends Orchestra\Testbench\TestCase
 
     protected function getPackageProviders($app)
     {
-        return [\MicroweberPackages\Cache\TaggableFileCacheServiceProvider::class];
+        return [TaggableFileCacheServiceProvider::class];
     }
 
     /**
@@ -26,7 +28,8 @@ abstract class BaseTest extends Orchestra\Testbench\TestCase
 
         // Setup default database to use sqlite :memory:
         $app['config']->set('cache.default', 'file');
-        $app['config']->set('cache.stores.file',
+        $app['config']->set(
+            'cache.stores.file',
             [
                 'driver' => 'file',
                 'path' => storage_path('framework/cache'),

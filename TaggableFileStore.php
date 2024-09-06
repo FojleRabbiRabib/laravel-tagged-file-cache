@@ -1,6 +1,6 @@
 <?php
 
-namespace MicroweberPackages\Cache;
+namespace FojleRabbiRabib\Cache;
 
 use Closure;
 use Illuminate\Cache\RetrievesMultipleKeys;

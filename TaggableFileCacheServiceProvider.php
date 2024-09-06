@@ -1,7 +1,8 @@
 <?php
 
-namespace MicroweberPackages\Cache;
+namespace FojleRabbiRabib\Cache;
 
+use FojleRabbiRabib\Cache\TaggableFileStore;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
