@@ -1,4 +1,4 @@
-name: Laravel
+name: Laravel Package Tests
 
 on:
   push:
@@ -11,25 +11,25 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        php-version: [8.0, 8.1, 8.2]
+        laravel-version: ['^10.0', '^11.0', '^12.0']
+
     steps:
-    - uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.2'
-    - uses: actions/checkout@v4
-    - name: Copy .env
-      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-    - name: Install Dependencies
-      run: composer install -q --no-progress --prefer-dist
-    - name: Generate key
-      run: php artisan key:generate
-    - name: Directory Permissions
-      run: chmod -R 777 storage bootstrap/cache
-    - name: Create Database
-      run: |
-        mkdir -p database
-        touch database/database.sqlite
-    - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
-      env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
-      run: php artisan test
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+
+      - name: Install Composer dependencies
+        run: composer require "laravel/framework:${{ matrix.laravel-version }}" --dev --no-interaction --prefer-dist
+
+      - name: Install package dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Run tests
+        run: vendor/bin/phpunit
