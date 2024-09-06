@@ -24,7 +24,8 @@
   },
   "autoload": {
     "psr-4": {
-      "FojleRabbiRabib\\Cache\\": ""
+      "FojleRabbiRabib\\Cache\\": "",
+      "Tests\\": "tests/"
     }
   },
   "homepage": "https://github.com/FojleRabbiRabib/laravel-tagged-file-cache",
