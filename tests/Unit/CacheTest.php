@@ -1,6 +1,7 @@
 <?php
 namespace Tests\Unit;
 
+use FojleRabbiRabib\Cache\TaggableFileStore;
 use Illuminate\Support\Facades\Cache;
 use Tests\BaseTest;
 

@@ -8,7 +8,7 @@ abstract class BaseTest extends TestCase
 {
 	protected function tearDown(): void
 	{
-		\Mockery::close(); // No need to import Mockery if used directly
+		\Mockery::close();
 		parent::tearDown();
 	}
 
